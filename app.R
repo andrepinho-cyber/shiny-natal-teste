@@ -1,24 +1,24 @@
 # app.R
 # Introdução a Aplicativos Shiny · Prof. André Pinho · UFRN
-# Aula 15: Módulos II e app em vários arquivos
+# Aula 16: Publicação com servidor (Posit Connect Cloud via GitHub)
 #
-# App "Temperaturas e chuva em Natal": o app da Aula 13, reorganizado em
-# três módulos que trocam dados (filtro, tabela e gráfico) e em vários
-# arquivos. Esta pasta é o app:
+# App "Temperaturas e chuva em Natal": o app pronto da Aula 15 (três
+# módulos em vários arquivos), pronto para o servidor. Esta pasta é o app:
 #   app.R                     configuração, dados, ui e server do app
 #   R/utilidades.R            funções e constantes dos módulos
 #   R/filtro.R                módulo do período (devolve os dias)
 #   R/tabela.R                módulo da tabela (devolve a seleção)
 #   R/grafico.R               módulo do gráfico
 #   inmet_natal_diario.csv    os dados
+#   manifest.json             a versão do R e os pacotes, para o servidor
 # O shiny lê sozinho os arquivos da pasta R/, antes deste app.R.
-# Solução do roteiro: PASSOS 1 a 5 feitos.
+# Solução do roteiro: PASSO 1 (sem o shiny.autoreload) e PASSO 2 (o
+# manifest.json, criado com rsconnect::writeManifest() nesta pasta).
 # Como usar: abra este app.R no RStudio e clique em "Run App".
-# Porta fixa da aula: 4015.
+# Porta fixa da aula: 4016 (no servidor, quem escolhe a porta é ele).
 
 ## ---- app_configuracao ----
-options(shiny.port = 4015)        # porta fixa da Aula 15
-options(shiny.autoreload = TRUE)  # salvar o arquivo recarrega o app
+options(shiny.port = 4016)        # porta fixa da Aula 16
 library(shiny)
 library(bslib)
 library(ggplot2)
